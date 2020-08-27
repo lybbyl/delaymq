@@ -12,13 +12,13 @@
     </parent>
 
     <groupId>com.luoluocode</groupId>
-    <artifactId>delayMQ</artifactId>
-    <version>1.0.0-RELEASE</version>
+    <artifactId>delaymq</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>delayMQ</name>
-    <url>https://github.com/lybbyl/delayMQ</url>
-    <description>delayMQ spring boot with annotation</description>
+    <name>delaymq</name>
+    <url>https://github.com/lybbyl/delaymq</url>
+    <description>delaymq spring boot with annotation</description>
     <inceptionYear>2020</inceptionYear>
 
     <developers>
@@ -37,8 +37,8 @@
     </licenses>
     <scm>
         <url>http://luoluocode.com</url>
-        <connection>scm:git:https://github.com/lybbyl/delayMQ.git</connection>
-        <developerConnection>scm:git:https://github.com/lybbyl/delayMQ.git</developerConnection>
+        <connection>scm:git:https://github.com/lybbyl/delaymq.git</connection>
+        <developerConnection>scm:git:https://github.com/lybbyl/delaymq.git</developerConnection>
     </scm>
 
     <properties>

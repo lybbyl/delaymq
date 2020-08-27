@@ -15,7 +15,7 @@
    
    <dependency>
       <groupId>com.luoluocode</groupId>
-      <artifactId>delayMQ</artifactId>
+      <artifactId>delaymq</artifactId>
       <version>1.0-REALEASE</version>
    </dependency>
    ~~~
@@ -761,7 +761,7 @@ public class Demo01AMySQLConsumerListener extends AbstractDelayMQConsumerListene
 当希望业务和消息不耦合时，利用spring的mysql，redis多数据源配置可以松耦合。示例在项目中
 
 ~~~
- <module>delayMQ-mybatis-mutiple</module>
- <module>delayMQ-mutiple-redis</module>
+ <module>delaymq-mybatis-mutiple</module>
+ <module>delaymq-mutiple-redis</module>
 ~~~
 
