@@ -1,0 +1,140 @@
+{
+  "groups": [
+    {
+      "name": "com.luoluo.delaymq",
+      "type": "com.luoluo.delaymq.config.DelayMQProperties",
+      "sourceType": "com.luoluo.delaymq.config.DelayMQProperties"
+    },
+    {
+      "name": "com.luoluo.delaymq.consumer",
+      "type": "com.luoluo.delaymq.config.DelayMQProperties$Consumer",
+      "sourceType": "com.luoluo.delaymq.config.DelayMQProperties",
+      "sourceMethod": "getConsumer()"
+    },
+    {
+      "name": "com.luoluo.delaymq.producer",
+      "type": "com.luoluo.delaymq.config.DelayMQProperties$Producer",
+      "sourceType": "com.luoluo.delaymq.config.DelayMQProperties",
+      "sourceMethod": "getProducer()"
+    }
+  ],
+  "properties": [
+    {
+      "name": "com.luoluo.delaymq.consumer.back-track-time",
+      "type": "java.lang.Integer",
+      "description": "消息回溯时间",
+      "sourceType": "com.luoluo.delaymq.config.DelayMQProperties$Consumer",
+      "defaultValue": 15
+    },
+    {
+      "name": "com.luoluo.delaymq.consumer.consume-group-type",
+      "type": "com.luoluo.delaymq.constant.ConsumeGroupType",
+      "description": "消费的两种模式",
+      "sourceType": "com.luoluo.delaymq.config.DelayMQProperties$Consumer"
+    },
+    {
+      "name": "com.luoluo.delaymq.consumer.consume-thread",
+      "type": "java.lang.Integer",
+      "description": "监听bean消费线程数",
+      "sourceType": "com.luoluo.delaymq.config.DelayMQProperties$Consumer",
+      "defaultValue": 4
+    },
+    {
+      "name": "com.luoluo.delaymq.consumer.consume-thread-max",
+      "type": "java.lang.Integer",
+      "description": "监听bean最大消费线程数",
+      "sourceType": "com.luoluo.delaymq.config.DelayMQProperties$Consumer",
+      "defaultValue": 4
+    },
+    {
+      "name": "com.luoluo.delaymq.consumer.consume-timeout",
+      "type": "java.lang.Integer",
+      "description": "消费超时 todo",
+      "sourceType": "com.luoluo.delaymq.config.DelayMQProperties$Consumer",
+      "defaultValue": 5
+    },
+    {
+      "name": "com.luoluo.delaymq.consumer.listeners",
+      "type": "java.util.Map<java.lang.String,java.util.Map<java.lang.String,java.lang.Boolean>>",
+      "description": "可配置关闭消费者 参考rocketMQ",
+      "sourceType": "com.luoluo.delaymq.config.DelayMQProperties$Consumer"
+    },
+    {
+      "name": "com.luoluo.delaymq.consumer.merge-consume-thread",
+      "type": "java.lang.Integer",
+      "description": "一个队列对应一个拉取线程",
+      "sourceType": "com.luoluo.delaymq.config.DelayMQProperties$Consumer",
+      "defaultValue": 16
+    },
+    {
+      "name": "com.luoluo.delaymq.consumer.pull-message-size",
+      "type": "java.lang.Integer",
+      "description": "默认拉取message最大大小",
+      "sourceType": "com.luoluo.delaymq.config.DelayMQProperties$Consumer",
+      "defaultValue": 2000
+    },
+    {
+      "name": "com.luoluo.delaymq.consumer.queue-type",
+      "type": "com.luoluo.delaymq.constant.QueueTypeEnum",
+      "description": "默认REDIS队列",
+      "sourceType": "com.luoluo.delaymq.config.DelayMQProperties$Consumer"
+    },
+    {
+      "name": "com.luoluo.delaymq.consumer.retry-count",
+      "type": "java.lang.Integer",
+      "description": "默认重试次数",
+      "sourceType": "com.luoluo.delaymq.config.DelayMQProperties$Consumer",
+      "defaultValue": 8
+    },
+    {
+      "name": "com.luoluo.delaymq.consumer.retry-delay-time",
+      "type": "java.lang.Integer",
+      "description": "下次重试间隔时间",
+      "sourceType": "com.luoluo.delaymq.config.DelayMQProperties$Consumer",
+      "defaultValue": 15
+    },
+    {
+      "name": "com.luoluo.delaymq.consumer.reverse-time",
+      "type": "java.lang.Integer",
+      "description": "服务启动往回扫描的队列时间",
+      "sourceType": "com.luoluo.delaymq.config.DelayMQProperties$Consumer",
+      "defaultValue": 300
+    },
+    {
+      "name": "com.luoluo.delaymq.consumer.reverse-time-effect-to-broadcasting",
+      "type": "java.lang.Boolean",
+      "description": "广播模式是否支持往回扫描",
+      "sourceType": "com.luoluo.delaymq.config.DelayMQProperties$Consumer",
+      "defaultValue": false
+    },
+    {
+      "name": "com.luoluo.delaymq.consumer.support-transaction",
+      "type": "java.lang.Boolean",
+      "description": "默认不支持事务消费",
+      "sourceType": "com.luoluo.delaymq.config.DelayMQProperties$Consumer",
+      "defaultValue": false
+    },
+    {
+      "name": "com.luoluo.delaymq.producer.auto-creat-topic",
+      "type": "java.lang.Boolean",
+      "description": "默认可以自动创建topic",
+      "sourceType": "com.luoluo.delaymq.config.DelayMQProperties$Producer",
+      "defaultValue": true
+    },
+    {
+      "name": "com.luoluo.delaymq.producer.msg-survive-time",
+      "type": "java.lang.Integer",
+      "description": "默认存活时间为24小时",
+      "sourceType": "com.luoluo.delaymq.config.DelayMQProperties$Producer",
+      "defaultValue": 0
+    },
+    {
+      "name": "com.luoluo.delaymq.producer.write-topic-queue-num",
+      "type": "java.lang.Integer",
+      "description": "默认1个topic对应4个写队列",
+      "sourceType": "com.luoluo.delaymq.config.DelayMQProperties$Producer",
+      "defaultValue": 4
+    }
+  ],
+  "hints": []
+}
