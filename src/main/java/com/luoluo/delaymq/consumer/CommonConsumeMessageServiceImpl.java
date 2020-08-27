@@ -330,7 +330,7 @@ public class CommonConsumeMessageServiceImpl implements ConsumeMessageService {
         String lockKey = MQConstant.MSG_LOCK_POOL + TopicManager.getTopicMsgQueue(topicName, queue) + ":" + anno.queueType() + ":" + consumerGroup + ":" + id;
         lockKey = lockKey.replace(MQConstant.MSG_DELAY, "");
         if (!distributedLock.tryLock(lockKey)) {
-            log.info("other applications are processing,taskId:{},consumer:{}", id, delayMQConsumerListenerName);
+            log.debug("other applications are processing,taskId:{},consumer:{}", id, delayMQConsumerListenerName);
             return;
         }
         try {

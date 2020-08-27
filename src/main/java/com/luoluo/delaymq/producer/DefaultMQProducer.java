@@ -82,24 +82,32 @@ public class DefaultMQProducer implements MQProducer {
     /**
      * 异步发送线程池
      */
-    ThreadPoolExecutor producerExecutor = new ThreadPoolExecutor(
-            Runtime.getRuntime().availableProcessors(),
-            Runtime.getRuntime().availableProcessors(),
-            1000 * 60,
-            TimeUnit.SECONDS,
-            new LinkedBlockingQueue<>(50000),
-            new ThreadFactoryImpl("pushMessageTask"),
-            new ThreadPoolExecutor.AbortPolicy());
+    ThreadPoolExecutor producerExecutor;
 
-    @SneakyThrows
     public DefaultMQProducer(DelayMQProperties delayMQProperties, MessageOperate messageOperate, DistributedLock distributedLock) {
         this.messageOperate = messageOperate;
         this.delayMQProperties = delayMQProperties;
         this.distributedLock = distributedLock;
         if (messageOperate instanceof RedisMessageOperate) {
             this.queueType = QueueTypeEnum.REDIS_QUEUE;
+            producerExecutor = new ThreadPoolExecutor(
+                    Runtime.getRuntime().availableProcessors(),
+                    Runtime.getRuntime().availableProcessors(),
+                    1000 * 60,
+                    TimeUnit.SECONDS,
+                    new LinkedBlockingQueue<>(50000),
+                    new ThreadFactoryImpl("redisPushTask"),
+                    new ThreadPoolExecutor.AbortPolicy());
         } else if (messageOperate instanceof MySQLMessageOperate) {
             this.queueType = QueueTypeEnum.MYSQL_QUEUE;
+            producerExecutor = new ThreadPoolExecutor(
+                    Runtime.getRuntime().availableProcessors(),
+                    Runtime.getRuntime().availableProcessors(),
+                    1000 * 60,
+                    TimeUnit.SECONDS,
+                    new LinkedBlockingQueue<>(5000),
+                    new ThreadFactoryImpl("mysqlPushTask"),
+                    new ThreadPoolExecutor.AbortPolicy());
         } else {
             throw new BizException("No matching queue operation type found", null);
         }
@@ -385,7 +393,7 @@ public class DefaultMQProducer implements MQProducer {
         if (phrase == null) {
             throw new BizException("no such DelayMQLocalTransactionListener", null);
         }
-        DelayMQTransactionState delayMQTransactionState = phrase.getDelayMQLocalTransactionListener().executeLocalTransaction(message.getBody(),msgId);
+        DelayMQTransactionState delayMQTransactionState = phrase.getDelayMQLocalTransactionListener().executeLocalTransaction(message.getBody(), msgId);
         if (delayMQTransactionState.equals(DelayMQTransactionState.COMMIT)) {
             messageOperate.commitTransactionMessageToQueue(message, msgId);
             phrase.getDelayMQLocalTransactionListener().afterCommitTransactionMessage(message.getBody(), msgId);
