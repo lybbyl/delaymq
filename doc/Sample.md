@@ -14,7 +14,7 @@
    </dependency>
    
    <dependency>
-      <groupId>com.luoluo</groupId>
+      <groupId>com.luoluocode</groupId>
       <artifactId>delayMQ</artifactId>
       <version>1.0-REALEASE</version>
    </dependency>
