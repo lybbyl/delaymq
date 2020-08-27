@@ -37,7 +37,7 @@
 
 ### 五. 简单入门
 
-[简单示例](doc\Sample.md)
+[简单示例](doc/Sample.md)
 
 ### 六. Questions
 
