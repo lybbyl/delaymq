@@ -50,8 +50,8 @@ public class RedisMessageOperate implements MessageOperate {
     }
 
     @Override
-    public ConsumerMsg getConsumerMsgDataClustering(String id, String consumerGroup) {
-        String consumerMsgDataStr = redisUtils.hmGet(MQConstant.MSG_CONSUME + id, consumerGroup);
+    public ConsumerMsg getConsumerMsgDataClustering(String id, String topic, String consumerGroup) {
+        String consumerMsgDataStr = redisUtils.hmGet(MQConstant.MSG_CONSUME + topic + ":" + id, consumerGroup);
         if (UtilAll.isNotBlank(consumerMsgDataStr)) {
             ConsumerMsg consumerMsg = JSONUtil.parseObject(consumerMsgDataStr, ConsumerMsg.class);
             return consumerMsg;

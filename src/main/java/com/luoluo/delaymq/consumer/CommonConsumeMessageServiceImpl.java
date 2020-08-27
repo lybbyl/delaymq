@@ -339,7 +339,7 @@ public class CommonConsumeMessageServiceImpl implements ConsumeMessageService {
                 //消息为空 则 移除队列消息
                 messageOperate.removeMsgIdInQueue(topicName, queue, id);
             }
-            ConsumerMsg consumerMsg = messageOperate.getConsumerMsgDataClustering(id, consumerGroup);
+            ConsumerMsg consumerMsg = messageOperate.getConsumerMsgDataClustering(id, topic, consumerGroup);
             if (consumerMsg != null) {
                 //如果已消费成功或完全失败 则跳过此条消息
                 if (ConsumerStatus.SUCCESS.getDescription().equals(consumerMsg.getConsumerStatus()) || ConsumerStatus.COMPLETE_FAIL.getDescription().equals(consumerMsg.getConsumerStatus()) || System.currentTimeMillis() < consumerMsg.getRetryNextTime().getTime()) {

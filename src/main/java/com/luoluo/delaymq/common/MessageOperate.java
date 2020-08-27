@@ -41,10 +41,11 @@ public interface MessageOperate {
      * ps: 集群模式消费情况将会记录在对应队列的消费表中
      *
      * @param id
+     * @param topic
      * @param consumerGroup
      * @return
      */
-    ConsumerMsg getConsumerMsgDataClustering(String id, String consumerGroup);
+    ConsumerMsg getConsumerMsgDataClustering(String id,String topic, String consumerGroup);
 
     /**
      * 拉取topic中所有的key 按照给定范围排序

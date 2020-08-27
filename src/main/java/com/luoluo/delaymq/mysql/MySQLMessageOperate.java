@@ -67,7 +67,7 @@ public class MySQLMessageOperate implements MessageOperate {
     }
 
     @Override
-    public ConsumerMsg getConsumerMsgDataClustering(String id, String consumerGroup) {
+    public ConsumerMsg getConsumerMsgDataClustering(String id, String topic, String consumerGroup) {
         ConsumerMsg consumerMsg = DataAccessUtils.uniqueResult(jdbcTemplate.query(DelayMQMySQL.GET_MESSAGE_CONSUMER_SQL, new BeanPropertyRowMapper<>(ConsumerMsg.class), id, consumerGroup));
         return consumerMsg;
     }
