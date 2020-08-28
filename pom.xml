@@ -12,8 +12,8 @@
     </parent>
 
     <groupId>com.luoluocode</groupId>
-    <artifactId>luoluo-delaymq</artifactId>
-    <version>1.0.0-REALEASE</version>
+    <artifactId>delaymq</artifactId>
+    <version>1.0.0-RELEASE</version>
     <packaging>jar</packaging>
 
     <name>delaymq</name>
@@ -184,7 +184,7 @@
                 <configuration>
                     <serverId>ossrh</serverId>
                     <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                    <autoReleaseAfterClose>false</autoReleaseAfterClose>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
                 </configuration>
             </plugin>
 
