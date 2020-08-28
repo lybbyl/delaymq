@@ -1,6 +1,5 @@
 package com.luoluo.sample.consumer;
 
-import com.luoluo.delaymq.constant.QueueTypeEnum;
 import com.luoluo.delaymq.consumer.AbstractDelayMQConsumerListener;
 import com.luoluo.delaymq.consumer.ConsumerStatus;
 import com.luoluo.delaymq.consumer.annotation.DelayMQMessageListener;
@@ -9,23 +8,23 @@ import com.luoluo.delaymq.utils.JSONUtil;
 import com.luoluo.sample.message.Demo01Message;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 
 @Slf4j
 @Component
 @DelayMQMessageListener(
-        //必须配置监听topic
+        //监听的topic
         topic = "Test"
-        //必须配置消费者组
+        //消费者组
+        //默认消费模式为集群模式 ，一条消息只能被一个消费者组中的一个消费者消费
         , consumerGroup = "demo01-A-consumer-group-" + "Topic"
-        //默认是Reids队列，更改为MYSQL_QUEUE即可
-        , queueType = QueueTypeEnum.MYSQL_QUEUE
 )
-public class Demo01AMySQLConsumerListener extends AbstractDelayMQConsumerListener<Demo01Message> {
+@Controller
+public class Demo01ARedisConsumerListener extends AbstractDelayMQConsumerListener<Demo01Message> {
+
 
     @Autowired
     RedisUtils redisUtils;

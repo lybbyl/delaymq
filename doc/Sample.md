@@ -1,6 +1,6 @@
 # delayMQ入门
 
-**所有示例均记录在delayMQ-sample中**
+**所有示例均记录在delayMQ-sample中** ，配置redis后，可直接运行delaymq-redis-simple。
 
 ## 1 入门示例
 

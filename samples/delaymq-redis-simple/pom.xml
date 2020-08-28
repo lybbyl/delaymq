@@ -2,13 +2,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
     <parent>
         <groupId>com.luoluocode</groupId>
         <artifactId>luoluo-delaymq-samples</artifactId>
         <version>1.0.0-RELEASE</version>
     </parent>
-    <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>luoluo-delaymq-simple</artifactId>
+    <groupId>com.luoluocode</groupId>
+    <artifactId>delaymq-redis-simple</artifactId>
+    <version>1.0.0-RELEASE</version>
 
+    
 </project>

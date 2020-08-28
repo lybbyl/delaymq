@@ -2,13 +2,11 @@ package com.luoluo.redis.controller;
 
 import com.luoluo.delaymq.constant.QueueTypeEnum;
 import com.luoluo.delaymq.producer.DelayMQTransactionState;
-import com.luoluo.delaymq.producer.MySQLProducer;
 import com.luoluo.delaymq.producer.RedisMQProducer;
 import com.luoluo.delaymq.producer.annotation.AbstractDelayMQTransactionListener;
 import com.luoluo.delaymq.producer.annotation.DelayMQTransactionListener;
 import com.luoluo.delaymq.utils.JSONUtil;
 import com.luoluo.redis.dataobject.UserDO;
-import com.luoluo.redis.mapper.UserMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
