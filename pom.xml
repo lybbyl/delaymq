@@ -12,11 +12,11 @@
     </parent>
 
     <groupId>com.luoluocode</groupId>
-    <artifactId>delaymq</artifactId>
+    <artifactId>luoluo-delaymq</artifactId>
     <version>1.0.0-RELEASE</version>
     <packaging>jar</packaging>
 
-    <name>delaymq</name>
+    <name>luoluo-delaymq</name>
     <url>https://github.com/lybbyl/delaymq</url>
     <description>delaymq spring boot with annotation</description>
     <inceptionYear>2020</inceptionYear>
@@ -184,7 +184,7 @@
                 <configuration>
                     <serverId>ossrh</serverId>
                     <nexusUrl>https://oss.sonatype.org/</nexusUrl>
-                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                    <autoReleaseAfterClose>false</autoReleaseAfterClose>
                 </configuration>
             </plugin>
 

@@ -4,11 +4,11 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
         <groupId>com.luoluocode</groupId>
-        <artifactId>delaymq-samples</artifactId>
+        <artifactId>luoluo-delaymq-samples</artifactId>
         <version>1.0.0-RELEASE</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>delaymq-simple</artifactId>
+    <artifactId>luoluo-delaymq-simple</artifactId>
 
 </project>
