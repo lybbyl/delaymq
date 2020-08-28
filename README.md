@@ -1,5 +1,9 @@
 #  luoluo-delayMQ一个简单易用的java分布式延时队列组件
 
+[github链接](https://github.com/lybbyl/delaymq)
+
+[gitee链接](https://gitee.com/meiyougexingdewo/delaymq)
+
 ###  一. 系统介绍
 
 1. 基于springboot开发
