@@ -8,8 +8,6 @@ import com.luoluo.delaymq.utils.JSONUtil;
 import com.luoluo.sample.message.Demo01Message;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,9 +17,6 @@ import org.springframework.transaction.annotation.Transactional;
 @DelayMQMessageListener(
         topic = "Test"
         , consumerGroup = "demo01-C-consumer-group-" + "Topic"
-        , consumeThread = 4
-        , consumeThreadMax = 8
-        , retryDelayTime = 1
 )
 public class Demo01CRedisConsumerListener extends AbstractDelayMQConsumerListener<Demo01Message> {
 

@@ -21,7 +21,8 @@
     </properties>
 
     <modules>
-        <module>delaymq-simple</module>
+        <module>delaymq-redis-simple</module>
+        <module>delaymq-mysql-simple</module>
         <module>delaymq-mybatis-mutiple</module>
         <module>delaymq-mutiple-redis</module>
     </modules>
@@ -51,18 +52,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-        </dependency>
-
-        <!-- Spring-jdbc 用于配置JdbcTemplate -->
-        <!-- 引入jdbc支持 -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jdbc</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
         </dependency>
 
         <dependency>
