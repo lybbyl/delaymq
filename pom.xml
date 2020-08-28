@@ -12,7 +12,7 @@
     </parent>
 
     <groupId>com.luoluocode</groupId>
-    <artifactId>delaymq</artifactId>
+    <artifactId>luoluo-delaymq</artifactId>
     <version>1.0.0-REALEASE</version>
     <packaging>jar</packaging>
 
@@ -127,7 +127,9 @@
                         </goals>
                         <configuration>
                             <!--取消对源码中的doc参数注释等检查-->
-                            <additionalOptions><additionalOption>-Xdoclint:none</additionalOption></additionalOptions>
+                            <additionalOptions>
+                                <additionalOption>-Xdoclint:none</additionalOption>
+                            </additionalOptions>
                         </configuration>
                     </execution>
                 </executions>

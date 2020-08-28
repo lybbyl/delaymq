@@ -15,7 +15,7 @@
    
    <dependency>
       <groupId>com.luoluocode</groupId>
-      <artifactId>delaymq</artifactId>
+      <artifactId>luoluo-delaymq</artifactId>
       <version>1.0-REALEASE</version>
    </dependency>
    ~~~
