@@ -94,7 +94,7 @@ public class DefaultMQProducer implements MQProducer {
                     Runtime.getRuntime().availableProcessors(),
                     Runtime.getRuntime().availableProcessors(),
                     1000 * 60,
-                    TimeUnit.SECONDS,
+                    TimeUnit.MILLISECONDS,
                     new LinkedBlockingQueue<>(50000),
                     new ThreadFactoryImpl("redisPushTask"),
                     new ThreadPoolExecutor.AbortPolicy());
@@ -104,7 +104,7 @@ public class DefaultMQProducer implements MQProducer {
                     Runtime.getRuntime().availableProcessors(),
                     Runtime.getRuntime().availableProcessors(),
                     1000 * 60,
-                    TimeUnit.SECONDS,
+                    TimeUnit.MILLISECONDS,
                     new LinkedBlockingQueue<>(3000),
                     new ThreadFactoryImpl("mysqlPushTask"),
                     new ThreadPoolExecutor.AbortPolicy());

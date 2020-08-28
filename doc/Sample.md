@@ -206,11 +206,12 @@ import com.luoluo.delaymq.consumer.AbstractDelayMQConsumerListener;
 import com.luoluo.delaymq.consumer.ConsumerStatus;
 import com.luoluo.delaymq.consumer.annotation.DelayMQMessageListener;
 import com.luoluo.sample.message.Demo01Message;
-import org.slf4j.Logger;
+import lombok.extern.slf4j.Slf4j;import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+@Slf4j
 @Component
 @DelayMQMessageListener(
         topic = "Test"
@@ -219,8 +220,6 @@ import org.springframework.transaction.annotation.Transactional;
         , queueType = QueueTypeEnum.MYSQL_QUEUE
 )
 public class Demo01AMySQLConsumerListener extends AbstractDelayMQConsumerListener<Demo01Message> {
-
-    private Logger logger = LoggerFactory.getLogger(getClass());
 
   	 @Autowired
     RedisUtils redisUtils;
@@ -664,15 +663,8 @@ com.luoluo.delaymq.consumer.back-track-time=15
 //可用注解覆盖配置
 com.luoluo.delaymq.consumer.consume-group-type=merge
 
-//当为part各自管理时 配置各自线程池的最小线程和最大线程数
-//默认为4
-//可用注解覆盖配置
-com.luoluo.delaymq.consumer.consume-thread=4
-com.luoluo.delaymq.consumer.consume-thread-max=4
-
 //当为part各自管理时 配置统一管理调度的线程池大小(fixed线程池) 
 //默认为16
-//可用注解覆盖配置
 com.luoluo.delaymq.consumer.merge-consume-thread=16
 
 //一次从存储端拉取的消息数 
@@ -704,6 +696,14 @@ com.luoluo.delaymq.consumer.listeners.demo01-A-consumer-group-Topic.Test: true
 
 ~~~properties
 大部分和配置文件相同 除以下
+
+//当为part各自管理时 配置各自线程池的最小线程和最大线程数
+//consume-thread默认为topic-queue队列数 
+//consume-thread-max为topic-queue队列数2倍
+//可用注解覆盖配置
+consume-thread=
+consume-thread-max=
+
 
 consumeMode 消费模式 默认顺序消费
 ----CONCURRENTLY 消费者并发消费

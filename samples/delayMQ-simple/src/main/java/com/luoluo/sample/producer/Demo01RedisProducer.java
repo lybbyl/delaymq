@@ -180,7 +180,7 @@ public class Demo01RedisProducer {
         Message<Demo01Message> message = new Message<>();
         message.setBody(demo01Message);
         message.setTopicName("Test");
-        message.setExecuteTime(System.currentTimeMillis());
+        message.setExecuteTime(System.currentTimeMillis()+ DateNumUtil.FIVE_SECOND);
         // 同步发送消息
         redisMQProducer.sendTransactionMessage(message);
     }

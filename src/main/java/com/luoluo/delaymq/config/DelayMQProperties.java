@@ -93,16 +93,6 @@ public class DelayMQProperties implements Config {
         private ConsumeGroupType consumeGroupType = ConsumeGroupType.MERGE;
 
         /**
-         * 监听bean消费线程数
-         */
-        private int consumeThread = 4;
-
-        /**
-         * 监听bean最大消费线程数
-         */
-        private int consumeThreadMax = 4;
-
-        /**
          * 默认拉取message最大大小
          */
         private int pullMessageSize = 2000;

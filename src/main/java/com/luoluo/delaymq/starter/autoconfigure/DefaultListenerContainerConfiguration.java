@@ -171,8 +171,19 @@ public class DefaultListenerContainerConfiguration implements ApplicationContext
      */
     protected DefaultMergeDelayMQListenerContainer createDelayMQMergeListenerContainer() {
         this.defaultMergeDelayMQListenerContainer = new DefaultMergeDelayMQListenerContainer(delayMQProperties.getConsumer(), distributedLock);
-        defaultMergeDelayMQListenerContainer.setConsumeThread(delayMQProperties.getConsumer().getMergeConsumeThread());
-        ThreadPoolExecutor consumeExecutor = (ThreadPoolExecutor) Executors.newFixedThreadPool(defaultMergeDelayMQListenerContainer.getConsumeThread());
+        int mergeConsumeThread = delayMQProperties.getConsumer().getMergeConsumeThread();
+        if (mergeConsumeThread <= 0) {
+            mergeConsumeThread = 16;
+        }
+        defaultMergeDelayMQListenerContainer.setConsumeThread(mergeConsumeThread);
+        ThreadPoolExecutor consumeExecutor = new ThreadPoolExecutor(
+                mergeConsumeThread,
+                mergeConsumeThread,
+                0,
+                TimeUnit.MILLISECONDS,
+                new ArrayBlockingQueue<>(mergeConsumeThread),
+                new ThreadFactoryImpl("MergePullMessageTask"),
+                new ThreadPoolExecutor.DiscardPolicy());
         defaultMergeDelayMQListenerContainer.setConsumeExecutor(consumeExecutor);
         return defaultMergeDelayMQListenerContainer;
     }

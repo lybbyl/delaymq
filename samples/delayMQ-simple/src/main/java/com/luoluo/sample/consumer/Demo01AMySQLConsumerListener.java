@@ -8,12 +8,14 @@ import com.luoluo.delaymq.redis.RedisUtils;
 import com.luoluo.delaymq.utils.JSONUtil;
 import com.luoluo.sample.message.Demo01Message;
 import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+@Slf4j
 @Component
 @DelayMQMessageListener(
         //必须配置监听topic
@@ -24,8 +26,6 @@ import org.springframework.transaction.annotation.Transactional;
         , queueType = QueueTypeEnum.MYSQL_QUEUE
 )
 public class Demo01AMySQLConsumerListener extends AbstractDelayMQConsumerListener<Demo01Message> {
-
-    private Logger logger = LoggerFactory.getLogger(getClass());
 
     @Autowired
     RedisUtils redisUtils;
@@ -40,7 +40,7 @@ public class Demo01AMySQLConsumerListener extends AbstractDelayMQConsumerListene
         if (RandomBoolean.getRandomBool()) {
             throw new RuntimeException("RandomBoolean.getRandomBool()");
         }
-        logger.info("[onMessage][线程编号:{} 消息id:{} 消息内容：{}]", Thread.currentThread().getId(), msgId, JSONUtil.toJSONString(message));
+        log.info("[onMessage][线程编号:{} 消息id:{} 消息内容：{}]", Thread.currentThread().getId(), msgId, JSONUtil.toJSONString(message));
         redisUtils.incr(getClass().getName());
         return ConsumerStatus.SUCCESS;
     }

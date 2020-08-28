@@ -120,7 +120,15 @@
 > set MESSAGE:TOPIC:TABLE:Test "{\"queueNames\": [\"Message:QUEUE:Test:0\", \"Message:QUEUE:Test:1\", \"Message:QUEUE:Test:2\", \"Message:QUEUE:Test:3\",\"Message:QUEUE:Test:4\"], \"rebalanceStrategyEnum\": \"ROUND\"}"
 > ~~~
 
-8. 扩展
+8. 消费消息追不上生产消息
+
+> 如果消费消息的速度小于生产消息的速度
+>
+> 1. 优化消费接口（业务方优化），增大消费能力
+> 2. 将不同业务的消息，拆分置不同库。不同库对应不同的redis库，降低加锁冲突。
+> 3. 提pr，优化delaymq
+
+9. 扩展
 
 > 提前进行业务划分服务，服务连接不同库即可。
 
